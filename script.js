@@ -26,29 +26,39 @@ fileInput.addEventListener("change", async function (event) {
   reader.onload = async function () {
     const base64Image = reader.result.split(",")[1];
 
-    // Chama a API Plant.id v3
     analysisDiv.innerText = "Analisando...";
     analysisDiv.classList.remove("hidden");
 
     try {
+      const payload = {
+        images: [base64Image],
+        organs: ["leaf"],
+      };
+      console.log("Payload enviado:", payload);
+
       const response = await fetch("https://api.plant.id/v3/identification", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
           "Api-Key": "myJNVf6JjbsxiwKL53UVE0R9NoGk8taAWHhkbjN47Hhqc9CAFd",
         },
-        body: JSON.stringify({
-          images: [base64Image],
-          organs: ["leaf"], // Teste apenas com "leaf"
-        }),
+        body: JSON.stringify(payload),
       });
 
+      const responseText = await response.text();
+      console.log("Resposta bruta:", responseText);
+
       if (!response.ok) {
-        const errorData = await response.json();
+        let errorData;
+        try {
+          errorData = JSON.parse(responseText);
+        } catch {
+          errorData = responseText;
+        }
         console.error("Erro detalhado:", errorData);
         throw new Error("Erro ao consultar a API Plant.id: " + (errorData.message || response.status));
       }
-      const data = await response.json();
+      const data = JSON.parse(responseText);
 
       // Mostra o resultado formatado
       if (
