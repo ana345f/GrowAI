@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>🌱 GrowAI – Seu Jardineiro Futurista</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <h1>🌱 GrowAI – Seu Jardineiro Futurista</h1>
+
+  <div id="robot" class="robot">
+    <img id="robotImg" src="robot_happy.png" alt="Robô GrowAI" />
+    <p id="robotText">🌟 Estou feliz! Sua planta parece saudável.</p>
+  </div>
+
+  <div class="card">
+    <label class="upload-area">
+      <input type="file" id="fileInput" accept="image/*" hidden />
+      <p>📷 Envie uma foto da sua planta</p>
+    </label>
+
+    <img id="plantPreview" class="hidden" />
+
+    <div id="analysis" class="hidden analysis"></div>
+
+    <button id="climateBtn">🌍 Consultar Clima Local</button>
+
+    <div id="climate" class="hidden climate"></div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
+

@@ -1,0 +1,91 @@
+body {
+  font-family: Arial, sans-serif;
+  background: linear-gradient(to bottom, #f0fdf4, #bbf7d0, #86efac);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  min-height: 100vh;
+}
+
+h1 {
+  color: #065f46;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+  margin-bottom: 20px;
+}
+
+.robot {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.robot img {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  background: white;
+  padding: 10px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+.card {
+  background: rgba(255, 255, 255, 0.8);
+  border: 2px solid #86efac;
+  border-radius: 16px;
+  padding: 20px;
+  max-width: 500px;
+  width: 100%;
+  box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+}
+
+.upload-area {
+  display: block;
+  border: 2px dashed #10b981;
+  padding: 20px;
+  text-align: center;
+  border-radius: 12px;
+  cursor: pointer;
+  margin-bottom: 15px;
+  background: #f0fdf4;
+}
+
+.upload-area:hover {
+  background: #d1fae5;
+}
+
+#plantPreview {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 12px;
+  margin: 10px 0;
+  border: 1px solid #86efac;
+}
+
+button {
+  width: 100%;
+  background: #059669;
+  color: white;
+  padding: 15px;
+  font-size: 16px;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  margin-top: 15px;
+}
+
+button:hover {
+  background: #047857;
+}
+
+.analysis, .climate {
+  background: #ecfdf5;
+  border: 1px solid #a7f3d0;
+  border-radius: 12px;
+  padding: 15px;
+  margin-top: 15px;
+}
+
+.hidden {
+  display: none;
+}
