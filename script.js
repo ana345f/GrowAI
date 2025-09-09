@@ -35,15 +35,19 @@ fileInput.addEventListener("change", async function (event) {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
-          "Api-Key": "myJNVf6JjbsxiwKL53UVE0R9NoGk8taAWHhkbjN47Hhqc9CAFd", // Substitua pela sua chave da Plant.id
+          "Api-Key": "myJNVf6JjbsxiwKL53UVE0R9NoGk8taAWHhkbjN47Hhqc9CAFd",
         },
         body: JSON.stringify({
           images: [base64Image],
-          organs: ["leaf", "flower", "fruit", "bark"], // Ajuste conforme necessário
+          organs: ["leaf"], // Teste apenas com "leaf"
         }),
       });
 
-      if (!response.ok) throw new Error("Erro ao consultar a API Plant.id");
+      if (!response.ok) {
+        const errorData = await response.json();
+        console.error("Erro detalhado:", errorData);
+        throw new Error("Erro ao consultar a API Plant.id: " + (errorData.message || response.status));
+      }
       const data = await response.json();
 
       // Mostra o resultado formatado
